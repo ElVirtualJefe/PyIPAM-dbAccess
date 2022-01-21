@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message objIpAddress {
+    string strIpAddress = 1;
+}
+
+message writeResponse {
+    string response = 1;
+}
+
+service DBAccess {
+    rpc writeIpAddress (objIpAddress) returns (writeResponse);
+}
