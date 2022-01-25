@@ -12,3 +12,4 @@ venv**/
 env__/
 .vscode/
 **/__pycache__/
+postgres-data/
