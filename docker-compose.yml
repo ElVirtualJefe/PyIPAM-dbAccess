@@ -1,8 +1,18 @@
 version: '3'
-
 services:
+  pyipam-app:
+#    image: photon:latest
+    restart: always
+    env_file: ./.env.dev
+    build: .
+    ports:
+      - 5005:5005
+    networks:
+      - db_network
+      - app_network
+    depends_on: 
+      - pyipam-postgres
   pyipam-postgres:
-#    image: PyIPAM-postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: PyIPAM-Passw0rd123!
@@ -15,9 +25,10 @@ services:
     restart: always
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
-
 networks:
   db_network:
+    driver: bridge
+  app_network:
     driver: bridge
 
 volumes: 

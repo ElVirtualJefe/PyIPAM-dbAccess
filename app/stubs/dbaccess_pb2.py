@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x64\x62\x61\x63\x63\x65ss.proto\"$\n\x0cobjIpAddress\x12\x14\n\x0cstrIpAddress\x18\x01 \x01(\t\"!\n\rwriteResponse\x12\x10\n\x08response\x18\x01 \x01(\t2;\n\x08\x44\x42\x41\x63\x63\x65ss\x12/\n\x0ewriteIpAddress\x12\r.objIpAddress\x1a\x0e.writeResponseb\x06proto3'
+  serialized_pb=b'\n\x0e\x64\x62\x61\x63\x63\x65ss.proto\"`\n\x0cobjIpAddress\x12\x14\n\x0cstrIpAddress\x18\x01 \x01(\t\x12\x12\n\nsubnetMask\x18\x02 \x01(\t\x12\x0e\n\x06prefix\x18\x03 \x01(\t\x12\x16\n\x0e\x64\x65\x66\x61ultGateway\x18\x04 \x01(\t\"!\n\rwriteResponse\x12\x10\n\x08response\x18\x01 \x01(\t2;\n\x08\x44\x42\x41\x63\x63\x65ss\x12/\n\x0ewriteIpAddress\x12\r.objIpAddress\x1a\x0e.writeResponseb\x06proto3'
 )
 
 
@@ -40,6 +40,27 @@ _OBJIPADDRESS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='subnetMask', full_name='objIpAddress.subnetMask', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='prefix', full_name='objIpAddress.prefix', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='defaultGateway', full_name='objIpAddress.defaultGateway', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -53,7 +74,7 @@ _OBJIPADDRESS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=18,
-  serialized_end=54,
+  serialized_end=114,
 )
 
 
@@ -84,8 +105,8 @@ _WRITERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=89,
+  serialized_start=116,
+  serialized_end=149,
 )
 
 DESCRIPTOR.message_types_by_name['objIpAddress'] = _OBJIPADDRESS
@@ -115,8 +136,8 @@ _DBACCESS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=91,
-  serialized_end=150,
+  serialized_start=151,
+  serialized_end=210,
   methods=[
   _descriptor.MethodDescriptor(
     name='writeIpAddress',

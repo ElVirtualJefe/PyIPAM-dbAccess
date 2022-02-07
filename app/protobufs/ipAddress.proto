@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package dbAccess;
+
+service IpAddressService {
+    rpc GetIpAddressById (IpAddressIdRequest) returns (IpAddressResponse) {}
+    rpc GetIpAddressByName (IpAddressNameRequest) returns (IpAddressResponse) {}
+    rpc GetIpAddressBySubnet (IpAddressSubnetRequest) returns (IpAddressResponse) {}
+}
+
+message ipAddress {
+    string id = 1;
+    string subnet_id = 2;
+    string ipAddress = 3;
+    bool is_gateway = 4;
+    string description = 5;
+    string hostname = 6;
+    string macAddress = 7;
+    string owner = 8;
+    string state_id = 9;
+    string dataLastSeen = 10;
+    string dateLastEdited = 11;
+}
+
+message IpAddressIdRequest {
+    string id = 1;
+}
+
+message IpAddressNameRequest {
+    string name = 1;
+}
+
+message IpAddressSubnetRequest {
+    string subnet_id = 1;
+}
+
+message IpAddressResponse {
+    ipAddress ipAddress = 1;
+}
+

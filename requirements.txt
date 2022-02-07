@@ -2,3 +2,4 @@ grpcio-tools >= 1.30
 psycopg2-binary>=2.9
 SQLAlchemy>=1.4.23
 alembic>=1.6.5
+ConfigParser>=5.2.0
