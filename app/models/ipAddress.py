@@ -13,7 +13,7 @@ class ipAddressModel(Base):
 
     id = Column(UUID(True), primary_key=True, default=uuid.uuid4)
     subnet_id = Column(UUID(True), ForeignKey('subnets.id'), nullable=False)
-    ipAddress = Column(BigInteger, unique=True, index=True, nullable=False)
+    ipAddress = Column(String(15), unique=True, index=True, nullable=False)
     is_gateway = Column(Boolean, default=False, nullable=False)
     description = Column(String(200))
     hostname = Column(String(64))

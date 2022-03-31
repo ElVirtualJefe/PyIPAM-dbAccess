@@ -2,7 +2,7 @@ import click
 import cli
 from text_client import TextClient
 
-_client = TextClient
+_client = TextClient()
 
 @click.command()
 @click.argument('id')

@@ -1,4 +1,4 @@
 
-print("Loadin app...")
+print("Loading app...")
 
 import app

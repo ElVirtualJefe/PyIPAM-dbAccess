@@ -1,6 +1,6 @@
 #import app.stubs.ipAddress_pb2
 import app.stubs.ipAddress_pb2_grpc
-from client.stubs import ipAddress_pb2
+from app.stubs import ipAddress_pb2
 
 class IpAddressServiceServicer(app.stubs.ipAddress_pb2_grpc.IpAddressServiceServicer):
     
@@ -8,8 +8,14 @@ class IpAddressServiceServicer(app.stubs.ipAddress_pb2_grpc.IpAddressServiceServ
         pass
 
     def GetIpAddressById(self, request, context):
+        resIpAddress = ipAddress_pb2.ipAddress()
 
-        return ipAddress_pb2.IpAddressResponse()
+        
+        resIpAddress.id = request.id
+        resIpAddress.ipAddress = 'This is a miracle'
+
+
+        return ipAddress_pb2.IpAddressResponse(ipAddress=resIpAddress)
 
     def GetIpAddressByName(self, request, context):
         pass
