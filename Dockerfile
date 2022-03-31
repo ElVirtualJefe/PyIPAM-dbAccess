@@ -27,6 +27,9 @@ COPY . /usr/src/PyIPAM/
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /usr/src/PyIPAM
 USER appuser
 
+RUN python -m alembic revision --autogenerate
+RUN python -m alembic upgrade head
+
 #RUN python -m flask db migrate
 #RUN python -m flask db upgrade
 
