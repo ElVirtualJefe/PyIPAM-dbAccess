@@ -3,6 +3,7 @@
 # source: ipAddress.proto
 """Generated protocol buffer code."""
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -13,255 +14,15 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor.FileDescriptor(
-  name='ipAddress.proto',
-  package='dbAccess',
-  syntax='proto3',
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0fipAddress.proto\x12\x08\x64\x62\x41\x63\x63\x65ss\"\xdb\x01\n\tipAddress\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tsubnet_id\x18\x02 \x01(\t\x12\x11\n\tipAddress\x18\x03 \x01(\t\x12\x12\n\nis_gateway\x18\x04 \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x12\n\nmacAddress\x18\x07 \x01(\t\x12\r\n\x05owner\x18\x08 \x01(\t\x12\x10\n\x08state_id\x18\t \x01(\t\x12\x14\n\x0c\x64\x61taLastSeen\x18\n \x01(\t\x12\x16\n\x0e\x64\x61teLastEdited\x18\x0b \x01(\t\" \n\x12IpAddressIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x14IpAddressNameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"+\n\x16IpAddressSubnetRequest\x12\x11\n\tsubnet_id\x18\x01 \x01(\t\";\n\x11IpAddressResponse\x12&\n\tipAddress\x18\x01 \x01(\x0b\x32\x13.dbAccess.ipAddress2\x91\x02\n\x10IpAddressService\x12O\n\x10GetIpAddressById\x12\x1c.dbAccess.IpAddressIdRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12S\n\x12GetIpAddressByName\x12\x1e.dbAccess.IpAddressNameRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12W\n\x14GetIpAddressBySubnet\x12 .dbAccess.IpAddressSubnetRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x62\x06proto3'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fipAddress.proto\x12\x08\x64\x62\x41\x63\x63\x65ss\"\xdb\x01\n\tipAddress\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tsubnet_id\x18\x02 \x01(\t\x12\x11\n\tipAddress\x18\x03 \x01(\t\x12\x12\n\nis_gateway\x18\x04 \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x12\n\nmacAddress\x18\x07 \x01(\t\x12\r\n\x05owner\x18\x08 \x01(\t\x12\x10\n\x08state_id\x18\t \x01(\t\x12\x14\n\x0c\x64\x61taLastSeen\x18\n \x01(\t\x12\x16\n\x0e\x64\x61teLastEdited\x18\x0b \x01(\t\" \n\x12IpAddressIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x14IpAddressNameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"+\n\x16IpAddressSubnetRequest\x12\x11\n\tsubnet_id\x18\x01 \x01(\t\";\n\x11IpAddressResponse\x12&\n\tipAddress\x18\x01 \x01(\x0b\x32\x13.dbAccess.ipAddress2\x9c\x03\n\x10IpAddressService\x12O\n\x10GetIpAddressById\x12\x1c.dbAccess.IpAddressIdRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12S\n\x12GetIpAddressByName\x12\x1e.dbAccess.IpAddressNameRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12W\n\x14GetIpAddressBySubnet\x12 .dbAccess.IpAddressSubnetRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12\x42\n\x0c\x41\x64\x64IpAddress\x12\x13.dbAccess.ipAddress\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12\x45\n\x0fUpdateIpAddress\x12\x13.dbAccess.ipAddress\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x62\x06proto3')
 
 
 
-
-_IPADDRESS = _descriptor.Descriptor(
-  name='ipAddress',
-  full_name='dbAccess.ipAddress',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='dbAccess.ipAddress.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='subnet_id', full_name='dbAccess.ipAddress.subnet_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='ipAddress', full_name='dbAccess.ipAddress.ipAddress', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='is_gateway', full_name='dbAccess.ipAddress.is_gateway', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='dbAccess.ipAddress.description', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='hostname', full_name='dbAccess.ipAddress.hostname', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='macAddress', full_name='dbAccess.ipAddress.macAddress', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='owner', full_name='dbAccess.ipAddress.owner', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='state_id', full_name='dbAccess.ipAddress.state_id', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='dataLastSeen', full_name='dbAccess.ipAddress.dataLastSeen', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='dateLastEdited', full_name='dbAccess.ipAddress.dateLastEdited', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=30,
-  serialized_end=249,
-)
-
-
-_IPADDRESSIDREQUEST = _descriptor.Descriptor(
-  name='IpAddressIdRequest',
-  full_name='dbAccess.IpAddressIdRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='dbAccess.IpAddressIdRequest.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=251,
-  serialized_end=283,
-)
-
-
-_IPADDRESSNAMEREQUEST = _descriptor.Descriptor(
-  name='IpAddressNameRequest',
-  full_name='dbAccess.IpAddressNameRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='dbAccess.IpAddressNameRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=285,
-  serialized_end=321,
-)
-
-
-_IPADDRESSSUBNETREQUEST = _descriptor.Descriptor(
-  name='IpAddressSubnetRequest',
-  full_name='dbAccess.IpAddressSubnetRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='subnet_id', full_name='dbAccess.IpAddressSubnetRequest.subnet_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=323,
-  serialized_end=366,
-)
-
-
-_IPADDRESSRESPONSE = _descriptor.Descriptor(
-  name='IpAddressResponse',
-  full_name='dbAccess.IpAddressResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='ipAddress', full_name='dbAccess.IpAddressResponse.ipAddress', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=368,
-  serialized_end=427,
-)
-
-_IPADDRESSRESPONSE.fields_by_name['ipAddress'].message_type = _IPADDRESS
-DESCRIPTOR.message_types_by_name['ipAddress'] = _IPADDRESS
-DESCRIPTOR.message_types_by_name['IpAddressIdRequest'] = _IPADDRESSIDREQUEST
-DESCRIPTOR.message_types_by_name['IpAddressNameRequest'] = _IPADDRESSNAMEREQUEST
-DESCRIPTOR.message_types_by_name['IpAddressSubnetRequest'] = _IPADDRESSSUBNETREQUEST
-DESCRIPTOR.message_types_by_name['IpAddressResponse'] = _IPADDRESSRESPONSE
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
+_IPADDRESS = DESCRIPTOR.message_types_by_name['ipAddress']
+_IPADDRESSIDREQUEST = DESCRIPTOR.message_types_by_name['IpAddressIdRequest']
+_IPADDRESSNAMEREQUEST = DESCRIPTOR.message_types_by_name['IpAddressNameRequest']
+_IPADDRESSSUBNETREQUEST = DESCRIPTOR.message_types_by_name['IpAddressSubnetRequest']
+_IPADDRESSRESPONSE = DESCRIPTOR.message_types_by_name['IpAddressResponse']
 ipAddress = _reflection.GeneratedProtocolMessageType('ipAddress', (_message.Message,), {
   'DESCRIPTOR' : _IPADDRESS,
   '__module__' : 'ipAddress_pb2'
@@ -297,51 +58,20 @@ IpAddressResponse = _reflection.GeneratedProtocolMessageType('IpAddressResponse'
   })
 _sym_db.RegisterMessage(IpAddressResponse)
 
+_IPADDRESSSERVICE = DESCRIPTOR.services_by_name['IpAddressService']
+if _descriptor._USE_C_DESCRIPTORS == False:
 
-
-_IPADDRESSSERVICE = _descriptor.ServiceDescriptor(
-  name='IpAddressService',
-  full_name='dbAccess.IpAddressService',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=430,
-  serialized_end=703,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='GetIpAddressById',
-    full_name='dbAccess.IpAddressService.GetIpAddressById',
-    index=0,
-    containing_service=None,
-    input_type=_IPADDRESSIDREQUEST,
-    output_type=_IPADDRESSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetIpAddressByName',
-    full_name='dbAccess.IpAddressService.GetIpAddressByName',
-    index=1,
-    containing_service=None,
-    input_type=_IPADDRESSNAMEREQUEST,
-    output_type=_IPADDRESSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetIpAddressBySubnet',
-    full_name='dbAccess.IpAddressService.GetIpAddressBySubnet',
-    index=2,
-    containing_service=None,
-    input_type=_IPADDRESSSUBNETREQUEST,
-    output_type=_IPADDRESSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_IPADDRESSSERVICE)
-
-DESCRIPTOR.services_by_name['IpAddressService'] = _IPADDRESSSERVICE
-
+  DESCRIPTOR._options = None
+  _IPADDRESS._serialized_start=30
+  _IPADDRESS._serialized_end=249
+  _IPADDRESSIDREQUEST._serialized_start=251
+  _IPADDRESSIDREQUEST._serialized_end=283
+  _IPADDRESSNAMEREQUEST._serialized_start=285
+  _IPADDRESSNAMEREQUEST._serialized_end=321
+  _IPADDRESSSUBNETREQUEST._serialized_start=323
+  _IPADDRESSSUBNETREQUEST._serialized_end=366
+  _IPADDRESSRESPONSE._serialized_start=368
+  _IPADDRESSRESPONSE._serialized_end=427
+  _IPADDRESSSERVICE._serialized_start=430
+  _IPADDRESSSERVICE._serialized_end=842
 # @@protoc_insertion_point(module_scope)

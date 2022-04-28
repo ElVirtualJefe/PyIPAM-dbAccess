@@ -1,3 +1,5 @@
+#print('__name__ = %s' % (__name__))
+
 from configparser import ConfigParser
 
 config = ConfigParser()
@@ -78,7 +80,6 @@ def serve():
         print("Stopping gRPC Server...")
         server.stop(0)
 
-print('__name__ = %s' % (__name__))
 if __name__ == "app":
     print("Entering main program...")
     serve()

@@ -9,8 +9,20 @@ class TextClient(object):
         self.ipAddress_conn.start()
     
     def get_ip_address_by_id(self,id):
-        req = ipAddress_pb2.IpAddressIdRequest(id=id)
+        req = ipAddress_pb2.IpAddressIdRequest(id = id)
         res = self.ipAddress_conn.stub.GetIpAddressById(req)
         #return ipAddress_pb2.IpAddressResponse(res)
+        return res
+
+    def add_new_ip_address(self,ip,is_gateway=False,description='',hostname='',mac='',owner=''):
+        req = ipAddress_pb2.ipAddress(
+            ipAddress = ip,
+            is_gateway = is_gateway,
+            description = description,
+            hostname = hostname,
+            macAddress = mac,
+            owner = owner
+        )
+        res = self.ipAddress_conn.stub.AddIpAddress(req)
         return res
 

@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import app.stubs.ipAddress_pb2 as ipAddress__pb2
+from app.stubs import ipAddress_pb2 as ipAddress__pb2
 
 
 class IpAddressServiceStub(object):
@@ -29,6 +29,16 @@ class IpAddressServiceStub(object):
                 request_serializer=ipAddress__pb2.IpAddressSubnetRequest.SerializeToString,
                 response_deserializer=ipAddress__pb2.IpAddressResponse.FromString,
                 )
+        self.AddIpAddress = channel.unary_unary(
+                '/dbAccess.IpAddressService/AddIpAddress',
+                request_serializer=ipAddress__pb2.ipAddress.SerializeToString,
+                response_deserializer=ipAddress__pb2.IpAddressResponse.FromString,
+                )
+        self.UpdateIpAddress = channel.unary_unary(
+                '/dbAccess.IpAddressService/UpdateIpAddress',
+                request_serializer=ipAddress__pb2.ipAddress.SerializeToString,
+                response_deserializer=ipAddress__pb2.IpAddressResponse.FromString,
+                )
 
 
 class IpAddressServiceServicer(object):
@@ -52,6 +62,18 @@ class IpAddressServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddIpAddress(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateIpAddress(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IpAddressServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -68,6 +90,16 @@ def add_IpAddressServiceServicer_to_server(servicer, server):
             'GetIpAddressBySubnet': grpc.unary_unary_rpc_method_handler(
                     servicer.GetIpAddressBySubnet,
                     request_deserializer=ipAddress__pb2.IpAddressSubnetRequest.FromString,
+                    response_serializer=ipAddress__pb2.IpAddressResponse.SerializeToString,
+            ),
+            'AddIpAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddIpAddress,
+                    request_deserializer=ipAddress__pb2.ipAddress.FromString,
+                    response_serializer=ipAddress__pb2.IpAddressResponse.SerializeToString,
+            ),
+            'UpdateIpAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateIpAddress,
+                    request_deserializer=ipAddress__pb2.ipAddress.FromString,
                     response_serializer=ipAddress__pb2.IpAddressResponse.SerializeToString,
             ),
     }
@@ -127,6 +159,40 @@ class IpAddressService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/dbAccess.IpAddressService/GetIpAddressBySubnet',
             ipAddress__pb2.IpAddressSubnetRequest.SerializeToString,
+            ipAddress__pb2.IpAddressResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddIpAddress(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/dbAccess.IpAddressService/AddIpAddress',
+            ipAddress__pb2.ipAddress.SerializeToString,
+            ipAddress__pb2.IpAddressResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateIpAddress(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/dbAccess.IpAddressService/UpdateIpAddress',
+            ipAddress__pb2.ipAddress.SerializeToString,
             ipAddress__pb2.IpAddressResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

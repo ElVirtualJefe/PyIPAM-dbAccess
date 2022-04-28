@@ -1,26 +1,28 @@
-from email.policy import default
-import string
+'''
+FILE IS DEPRECATED...
+DO NOT USE...
+'''
+
+
 import click
-#import cli
 from text_client import TextClient
 
-_client = TextClient()
+_client = TextClient
 
 @click.command()
 @click.argument('id')
 def _get_ip_address_by_id(id):
-    click.echo(id)
     click.echo(_client.get_ip_address_by_id(id))
 
-@click.command(name='add')
+@click.command()
 @click.argument('ip')
-@click.argument('is_gateway', type=bool, default=False)
-@click.argument('description', default='')
-@click.argument('hostname', default='')
-@click.argument('mac', default='')
-@click.argument('owner', default='')
-def _add_new_ip_address(ip,is_gateway,description,hostname,mac,owner):
-    click.echo(_client.add_new_ip_address(ip,is_gateway,description,hostname,mac,owner))
+@click.argument('is_gateway')
+@click.argument('description')
+@click.argument('hostname')
+@click.argument('mac')
+@click.argument('owner')
+def _add_new_ip_address(ip,is_gateway=False,description='',hostname='',mac='',owner=''):
+    click.echo(_client.get_ip_address_by_id(ip,is_gateway,description,hostname,mac,owner))
 
 
 _cmds = {
@@ -35,6 +37,6 @@ class _GrpcTextClientCli(click.MultiCommand):
     def get_command(self, ctx, name):
         return _cmds[name]
 
+
 cli = _GrpcTextClientCli(help='Text client commands')
 
-cli()

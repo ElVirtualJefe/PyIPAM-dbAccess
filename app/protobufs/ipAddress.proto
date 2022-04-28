@@ -6,6 +6,8 @@ service IpAddressService {
     rpc GetIpAddressById (IpAddressIdRequest) returns (IpAddressResponse) {}
     rpc GetIpAddressByName (IpAddressNameRequest) returns (IpAddressResponse) {}
     rpc GetIpAddressBySubnet (IpAddressSubnetRequest) returns (IpAddressResponse) {}
+    rpc AddIpAddress (ipAddress) returns (IpAddressResponse) {}
+    rpc UpdateIpAddress (ipAddress) returns (IpAddressResponse) {}
 }
 
 message ipAddress {
