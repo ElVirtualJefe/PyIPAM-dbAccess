@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from app.stubs import dbaccess_pb2 as dbaccess__pb2
+from stubs import dbaccess_pb2 as dbaccess__pb2
 
 
 class DBAccessStub(object):

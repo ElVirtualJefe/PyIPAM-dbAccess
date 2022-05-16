@@ -9,7 +9,7 @@ _client = TextClient()
 @click.command()
 @click.argument('id')
 def _get_ip_address_by_id(id):
-    click.echo(id)
+    click.echo("Searching for IP Address with ID: %s" % id)
     click.echo(_client.get_ip_address_by_id(id))
 
 @click.command(name='add')
@@ -22,10 +22,14 @@ def _get_ip_address_by_id(id):
 def _add_new_ip_address(ip,is_gateway,description,hostname,mac,owner):
     click.echo(_client.add_new_ip_address(ip,is_gateway,description,hostname,mac,owner))
 
+@click.command()
+def _write_to_table():
+    click.echo(_client.write_to_table())
 
 _cmds = {
     'get_ip_address_by_id': _get_ip_address_by_id,
-    'add_new_ip_address': _add_new_ip_address
+    'add_new_ip_address': _add_new_ip_address,
+    'write_to_table' : _write_to_table
 }
 
 class _GrpcTextClientCli(click.MultiCommand):

@@ -25,6 +25,6 @@ class GrpcServiceConnector(object):
             service_class_name = self._service_class.__name__
             raise AttributeError("stub '%s' is empty" % service_class_name)
 
-        print(f"{self._stub}")
+        #print(f"{self._stub}")
         return self._stub
 

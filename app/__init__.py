@@ -2,6 +2,8 @@
 
 from configparser import ConfigParser
 
+from app.stubs.dbaccess_pb2_grpc import DBAccessServicer
+
 config = ConfigParser()
 config.read("config.ini")
 
@@ -44,12 +46,12 @@ sess = Session()
 
 import grpc,time
 from concurrent import futures
-from app.implementations import IpAddressServiceServicer
-from app.stubs import ipAddress_pb2_grpc
+from app.implementations import IpAddressServiceServicer,DBAccessServicer
+from app.stubs import ipAddress_pb2_grpc,dbaccess_pb2_grpc
 
 _ONE_DAY_IN_SECONDS = 24 * 60 * 60
 
-def serve():
+def serve(service):
     """Start grpc server servicing FMS RPCs."""
     print("Starting gRPC Server...")
     # create grpc server
@@ -58,8 +60,13 @@ def serve():
     # add services
     #health_servicer = HealthServicer()
     #item_master_servicer = ItemMasterServicer()
-    ipAddressServicer = IpAddressServiceServicer()
-    ipAddress_pb2_grpc.add_IpAddressServiceServicer_to_server(ipAddressServicer,server)
+    match service:
+        case 'dbAccess':
+            dbAccessServicer = DBAccessServicer()
+            dbaccess_pb2_grpc.add_DBAccessServicer_to_server(dbAccessServicer,server)
+        case 'ipAddress':
+            ipAddressServicer = IpAddressServiceServicer()
+            ipAddress_pb2_grpc.add_IpAddressServiceServicer_to_server(ipAddressServicer,server)
 
     # start server
     server_port = config.get("server","PORT")
@@ -80,6 +87,9 @@ def serve():
         print("Stopping gRPC Server...")
         server.stop(0)
 
+'''
 if __name__ == "app":
     print("Entering main program...")
     serve()
+'''
+

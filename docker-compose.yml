@@ -17,7 +17,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: PyIPAM-Passw0rd123!
       POSTGRES_DB: PyIPAM
-    image: postgres:latest
+    image: postgres:13
     networks:
       - db_network
     ports:

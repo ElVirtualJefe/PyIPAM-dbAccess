@@ -1,16 +1,54 @@
 syntax = "proto3";
 
-message objIpAddress {
-    string strIpAddress = 1;
-    string subnetMask = 2;
-    string prefix = 3;
-    string defaultGateway = 4;
+enum filterOps {
+    EQUALS = 1;
+    LIKE = 2;
+    LIKE_REGEX = 3;
+}
+
+message readFilter {
+    string columnName = 1;
+    filterOps filterOperation = 2;
+    string filterValue = 3;
+}
+
+message writeMessage {
+    string tablename = 1;
+    bytes message = 2;
+}
+
+message readMessage {
+    string tablename = 1;
+    repeated readFilter = 2;
+}
+
+message readResponse {
+    bytes message = 1;
+    integer statusCode = 2;
+    string statusMessage = 3;
 }
 
 message writeResponse {
-    string response = 1;
+    bytes returnMessage = 1;
+    integer statusCode = 2;
+    string statusMessage = 4;
+}
+
+message deleteResponse {
+    integer statusCode = 1;
+    string = statusMessage = 2;
+}
+
+message updateResponse {
+    bytes returnMessage = 1;
+    integer statusCode = 2;
+    string statusMessage = 4;
 }
 
 service DBAccess {
-    rpc writeIpAddress (objIpAddress) returns (writeResponse);
+    rpc writeIpAddress (writeMessage) returns (writeResponse);
+    rpc writeRowToTable (writeMessage) returns (writeResponse);
+    rpc readRowFromTable (readMessage) returns (readResponse);
+    rpc updateRowInTable () returns (updateResponse);
+    rpc deleteRowFromTable () returns (deleteResponse);
 }

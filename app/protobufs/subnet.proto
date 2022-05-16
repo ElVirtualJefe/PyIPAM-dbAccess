@@ -2,17 +2,15 @@ syntax = "proto3";
 
 package dbAccess;
 
-service IpAddressService {
+service SubnetService {
     rpc GetIpAddressById (IpAddressIdRequest) returns (IpAddressResponse) {}
     rpc GetIpAddressByName (IpAddressNameRequest) returns (IpAddressResponse) {}
     rpc GetIpAddressBySubnet (IpAddressSubnetRequest) returns (IpAddressResponse) {}
-    rpc AddIpAddress (ipAddress) returns (IpAddressResponse) {}
-    rpc UpdateIpAddress (ipAddress) returns (IpAddressResponse) {}
-    rpc DeleteIpAddressById (IpAddressIdRequest) returns (IpAddressResponse) {}
-    rpc DeleteIpAddressByName (IpAddressNameRequest) returns (IpAddressResponse) {}
+    rpc AddSubnet (ipAddress) returns (IpAddressResponse) {}
+    rpc UpdateSubnet (ipAddress) returns (IpAddressResponse) {}
 }
 
-message ipAddress {
+message subnet {
     string id = 1;
     string subnet_id = 2;
     string ipAddress = 3;
