@@ -1,9 +1,9 @@
 syntax = "proto3";
 
 enum filterOps {
-    EQUALS = 1;
-    LIKE = 2;
-    LIKE_REGEX = 3;
+    EQUALS = 0;
+    LIKE = 1;
+    LIKE_REGEX = 2;
 }
 
 message readFilter {
@@ -17,31 +17,42 @@ message writeMessage {
     bytes message = 2;
 }
 
-message readMessage {
-    string tablename = 1;
-    repeated readFilter = 2;
-}
-
-message readResponse {
-    bytes message = 1;
-    integer statusCode = 2;
-    string statusMessage = 3;
-}
-
 message writeResponse {
     bytes returnMessage = 1;
-    integer statusCode = 2;
+    int32 statusCode = 2;
     string statusMessage = 4;
 }
 
+message readMessage {
+    string tablename = 1;
+    repeated readFilter readFilter = 2;
+}
+
+message readResponse {
+    bytes returnMessage = 1;
+    int32 statusCode = 2;
+    string statusMessage = 3;
+}
+
+message deleteMessage {
+    string tableName = 1;
+    string id = 2;
+}
+
 message deleteResponse {
-    integer statusCode = 1;
-    string = statusMessage = 2;
+    int32 statusCode = 1;
+    string statusMessage = 2;
+}
+
+message updateMessage {
+    string tableName = 1;
+    string id = 2;
+    bytes updateMessage = 3;
 }
 
 message updateResponse {
     bytes returnMessage = 1;
-    integer statusCode = 2;
+    int32 statusCode = 2;
     string statusMessage = 4;
 }
 
@@ -49,6 +60,6 @@ service DBAccess {
     rpc writeIpAddress (writeMessage) returns (writeResponse);
     rpc writeRowToTable (writeMessage) returns (writeResponse);
     rpc readRowFromTable (readMessage) returns (readResponse);
-    rpc updateRowInTable () returns (updateResponse);
-    rpc deleteRowFromTable () returns (deleteResponse);
+    rpc updateRowInTable (updateMessage) returns (updateResponse);
+    rpc deleteRowFromTable (deleteMessage) returns (deleteResponse);
 }

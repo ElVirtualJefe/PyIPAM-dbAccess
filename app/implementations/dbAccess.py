@@ -1,5 +1,6 @@
 import sqlalchemy
 from app.stubs import dbaccess_pb2, dbaccess_pb2_grpc as db_grpc
+from app.stubs import ipAddress_pb2 as ip_pb
 from app.models import Base,db
 from app import sess as session
 
@@ -47,4 +48,36 @@ class DBAccessServicer(db_grpc.DBAccessServicer):
 
     def writeIpAddress(self, request, context):
         self._writeToTable('ipAddresses',ipAddress='172.16.105.32')
+        return dbaccess_pb2.writeResponse()
+
+    def writeRowToTable(self, request, context):
+        tableName = request.tablename
+        print(tableName)
+        table = Base.metadata.tables[tableName]
+        print(f'table = {table}')
+
+        match tableName:
+            case 'ipAddresses':
+                inputMessage = ip_pb.ipAddress()
+                inputMessage.ParseFromString(request.message)
+
+        print(inputMessage)
+        
+        for c in table.columns:
+            t = str(c).split('.')[1]
+            print(t)
+
+            if (c.nullable == False):
+                #if t in columns:
+                if inputMessage.HasField(t):
+                    print('We can fill this column!!')
+                elif (c.default == None) and (c.server_default == None):
+                    print('Houston, we have a problem!!') 
+                else:
+                    print('There is a default value, so we don''t need to fill this column...')
+            else:
+                print('We can leave this one blank...')
+            
+        
+
         return dbaccess_pb2.writeResponse()

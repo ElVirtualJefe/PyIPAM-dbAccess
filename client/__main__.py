@@ -6,13 +6,11 @@ from text_client import TextClient
 
 _client = TextClient()
 
-@click.command()
-@click.argument('id')
-def _get_ip_address_by_id(id):
-    click.echo("Searching for IP Address with ID: %s" % id)
-    click.echo(_client.get_ip_address_by_id(id))
+@click.group()
+def write():
+    pass
 
-@click.command(name='add')
+@write.group()
 @click.argument('ip')
 @click.argument('is_gateway', type=bool, default=False)
 @click.argument('description', default='')
@@ -22,9 +20,20 @@ def _get_ip_address_by_id(id):
 def _add_new_ip_address(ip,is_gateway,description,hostname,mac,owner):
     click.echo(_client.add_new_ip_address(ip,is_gateway,description,hostname,mac,owner))
 
+@write.group()
+@click.argument('tablename')
+def _write_to_table(tablename):
+    click.echo(_client.write_to_table(tableName=tablename))
+
+@click.group()
+def read():
+    pass
+
 @click.command()
-def _write_to_table():
-    click.echo(_client.write_to_table())
+@click.argument('id')
+def _get_ip_address_by_id(id):
+    click.echo("Searching for IP Address with ID: %s" % id)
+    click.echo(_client.get_ip_address_by_id(id))
 
 _cmds = {
     'get_ip_address_by_id': _get_ip_address_by_id,

@@ -16,8 +16,28 @@ class DBAccessStub(object):
         """
         self.writeIpAddress = channel.unary_unary(
                 '/DBAccess/writeIpAddress',
-                request_serializer=dbaccess__pb2.objIpAddress.SerializeToString,
+                request_serializer=dbaccess__pb2.writeMessage.SerializeToString,
                 response_deserializer=dbaccess__pb2.writeResponse.FromString,
+                )
+        self.writeRowToTable = channel.unary_unary(
+                '/DBAccess/writeRowToTable',
+                request_serializer=dbaccess__pb2.writeMessage.SerializeToString,
+                response_deserializer=dbaccess__pb2.writeResponse.FromString,
+                )
+        self.readRowFromTable = channel.unary_unary(
+                '/DBAccess/readRowFromTable',
+                request_serializer=dbaccess__pb2.readMessage.SerializeToString,
+                response_deserializer=dbaccess__pb2.readResponse.FromString,
+                )
+        self.updateRowInTable = channel.unary_unary(
+                '/DBAccess/updateRowInTable',
+                request_serializer=dbaccess__pb2.updateMessage.SerializeToString,
+                response_deserializer=dbaccess__pb2.updateResponse.FromString,
+                )
+        self.deleteRowFromTable = channel.unary_unary(
+                '/DBAccess/deleteRowFromTable',
+                request_serializer=dbaccess__pb2.deleteMessage.SerializeToString,
+                response_deserializer=dbaccess__pb2.deleteResponse.FromString,
                 )
 
 
@@ -30,13 +50,57 @@ class DBAccessServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def writeRowToTable(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def readRowFromTable(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def updateRowInTable(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def deleteRowFromTable(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DBAccessServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'writeIpAddress': grpc.unary_unary_rpc_method_handler(
                     servicer.writeIpAddress,
-                    request_deserializer=dbaccess__pb2.objIpAddress.FromString,
+                    request_deserializer=dbaccess__pb2.writeMessage.FromString,
                     response_serializer=dbaccess__pb2.writeResponse.SerializeToString,
+            ),
+            'writeRowToTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.writeRowToTable,
+                    request_deserializer=dbaccess__pb2.writeMessage.FromString,
+                    response_serializer=dbaccess__pb2.writeResponse.SerializeToString,
+            ),
+            'readRowFromTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.readRowFromTable,
+                    request_deserializer=dbaccess__pb2.readMessage.FromString,
+                    response_serializer=dbaccess__pb2.readResponse.SerializeToString,
+            ),
+            'updateRowInTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.updateRowInTable,
+                    request_deserializer=dbaccess__pb2.updateMessage.FromString,
+                    response_serializer=dbaccess__pb2.updateResponse.SerializeToString,
+            ),
+            'deleteRowFromTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.deleteRowFromTable,
+                    request_deserializer=dbaccess__pb2.deleteMessage.FromString,
+                    response_serializer=dbaccess__pb2.deleteResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -60,7 +124,75 @@ class DBAccess(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/DBAccess/writeIpAddress',
-            dbaccess__pb2.objIpAddress.SerializeToString,
+            dbaccess__pb2.writeMessage.SerializeToString,
             dbaccess__pb2.writeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def writeRowToTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/DBAccess/writeRowToTable',
+            dbaccess__pb2.writeMessage.SerializeToString,
+            dbaccess__pb2.writeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def readRowFromTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/DBAccess/readRowFromTable',
+            dbaccess__pb2.readMessage.SerializeToString,
+            dbaccess__pb2.readResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def updateRowInTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/DBAccess/updateRowInTable',
+            dbaccess__pb2.updateMessage.SerializeToString,
+            dbaccess__pb2.updateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def deleteRowFromTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/DBAccess/deleteRowFromTable',
+            dbaccess__pb2.deleteMessage.SerializeToString,
+            dbaccess__pb2.deleteResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

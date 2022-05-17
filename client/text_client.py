@@ -24,7 +24,7 @@ class TextClient(object):
         return res
 
     def add_new_ip_address(self,ip,is_gateway=False,description='',hostname='',mac='',owner=''):
-        req = ipAddress_pb2.ipAddress(
+        newAddress = ipAddress_pb2.ipAddress(
             ipAddress = ip,
             is_gateway = is_gateway,
             description = description,
@@ -32,11 +32,24 @@ class TextClient(object):
             macAddress = mac,
             owner = owner
         )
-        res = self.ipAddress_conn.stub.AddIpAddress(req)
+        req = dbaccess_pb2.writeMessage(
+            tablename = 'ipAddresses',
+            message = newAddress.SerializeToString()
+        )
+        res = self.dbAccess_conn.stub.writeRowToTable(req)
         return res
 
     def write_to_table(self,**columns):
-        req = dbaccess_pb2.objIpAddress()
-        res = self.dbAccess_conn.stub.writeIpAddress(req)
+        req = dbaccess_pb2.writeMessage()
+
+        tableName = columns['tableName']
+        print(tableName)
+
+        match tableName:
+            case 'ipAddresses':
+                
+                self.add_new_ip_address('172.16.105.34')
+
+        res = self.dbAccess_conn.stub.writeRowToTable(req)
         return res
 
