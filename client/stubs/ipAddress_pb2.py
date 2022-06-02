@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fipAddress.proto\x12\x08\x64\x62\x41\x63\x63\x65ss\"\xdb\x01\n\tipAddress\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tsubnet_id\x18\x02 \x01(\t\x12\x11\n\tipAddress\x18\x03 \x01(\t\x12\x12\n\nis_gateway\x18\x04 \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x12\n\nmacAddress\x18\x07 \x01(\t\x12\r\n\x05owner\x18\x08 \x01(\t\x12\x10\n\x08state_id\x18\t \x01(\t\x12\x14\n\x0c\x64\x61taLastSeen\x18\n \x01(\t\x12\x16\n\x0e\x64\x61teLastEdited\x18\x0b \x01(\t\" \n\x12IpAddressIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x14IpAddressNameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"+\n\x16IpAddressSubnetRequest\x12\x11\n\tsubnet_id\x18\x01 \x01(\t\";\n\x11IpAddressResponse\x12&\n\tipAddress\x18\x01 \x01(\x0b\x32\x13.dbAccess.ipAddress2\x9c\x03\n\x10IpAddressService\x12O\n\x10GetIpAddressById\x12\x1c.dbAccess.IpAddressIdRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12S\n\x12GetIpAddressByName\x12\x1e.dbAccess.IpAddressNameRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12W\n\x14GetIpAddressBySubnet\x12 .dbAccess.IpAddressSubnetRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12\x42\n\x0c\x41\x64\x64IpAddress\x12\x13.dbAccess.ipAddress\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12\x45\n\x0fUpdateIpAddress\x12\x13.dbAccess.ipAddress\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fipAddress.proto\x12\x08\x64\x62\x41\x63\x63\x65ss\"\xf0\x01\n\tipAddress\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tsubnet_id\x18\x02 \x01(\t\x12\x11\n\tipAddress\x18\x03 \x01(\t\x12\x12\n\nis_gateway\x18\x04 \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x12\n\nmacAddress\x18\x07 \x01(\t\x12\r\n\x05owner\x18\x08 \x01(\t\x12\x10\n\x08state_id\x18\t \x01(\t\x12\x14\n\x0c\x64\x61taLastSeen\x18\n \x01(\t\x12\x16\n\x0e\x64\x61teLastEdited\x18\x0b \x01(\t\x12\x13\n\x0b\x64\x61teCreated\x18\x0c \x01(\t\" \n\x12IpAddressIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x14IpAddressNameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"+\n\x16IpAddressSubnetRequest\x12\x11\n\tsubnet_id\x18\x01 \x01(\t\";\n\x11IpAddressResponse\x12&\n\tipAddress\x18\x01 \x01(\x0b\x32\x13.dbAccess.ipAddress2\xc8\x04\n\x10IpAddressService\x12O\n\x10GetIpAddressById\x12\x1c.dbAccess.IpAddressIdRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12S\n\x12GetIpAddressByName\x12\x1e.dbAccess.IpAddressNameRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12W\n\x14GetIpAddressBySubnet\x12 .dbAccess.IpAddressSubnetRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12\x42\n\x0c\x41\x64\x64IpAddress\x12\x13.dbAccess.ipAddress\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12\x45\n\x0fUpdateIpAddress\x12\x13.dbAccess.ipAddress\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12R\n\x13\x44\x65leteIpAddressById\x12\x1c.dbAccess.IpAddressIdRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x12V\n\x15\x44\x65leteIpAddressByName\x12\x1e.dbAccess.IpAddressNameRequest\x1a\x1b.dbAccess.IpAddressResponse\"\x00\x62\x06proto3')
 
 
 
@@ -63,15 +63,15 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _IPADDRESS._serialized_start=30
-  _IPADDRESS._serialized_end=249
-  _IPADDRESSIDREQUEST._serialized_start=251
-  _IPADDRESSIDREQUEST._serialized_end=283
-  _IPADDRESSNAMEREQUEST._serialized_start=285
-  _IPADDRESSNAMEREQUEST._serialized_end=321
-  _IPADDRESSSUBNETREQUEST._serialized_start=323
-  _IPADDRESSSUBNETREQUEST._serialized_end=366
-  _IPADDRESSRESPONSE._serialized_start=368
-  _IPADDRESSRESPONSE._serialized_end=427
-  _IPADDRESSSERVICE._serialized_start=430
-  _IPADDRESSSERVICE._serialized_end=842
+  _IPADDRESS._serialized_end=270
+  _IPADDRESSIDREQUEST._serialized_start=272
+  _IPADDRESSIDREQUEST._serialized_end=304
+  _IPADDRESSNAMEREQUEST._serialized_start=306
+  _IPADDRESSNAMEREQUEST._serialized_end=342
+  _IPADDRESSSUBNETREQUEST._serialized_start=344
+  _IPADDRESSSUBNETREQUEST._serialized_end=387
+  _IPADDRESSRESPONSE._serialized_start=389
+  _IPADDRESSRESPONSE._serialized_end=448
+  _IPADDRESSSERVICE._serialized_start=451
+  _IPADDRESSSERVICE._serialized_end=1035
 # @@protoc_insertion_point(module_scope)

@@ -24,6 +24,7 @@ message ipAddress {
     string state_id = 9;
     string dataLastSeen = 10;
     string dateLastEdited = 11;
+    string dateCreated = 12;
 }
 
 message IpAddressIdRequest {

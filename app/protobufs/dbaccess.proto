@@ -20,7 +20,7 @@ message writeMessage {
 message writeResponse {
     bytes returnMessage = 1;
     int32 statusCode = 2;
-    string statusMessage = 4;
+    string statusMessage = 3;
 }
 
 message readMessage {

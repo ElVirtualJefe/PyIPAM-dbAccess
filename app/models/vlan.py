@@ -14,13 +14,13 @@ class vLanModel(Base):
 
     __tablename__ = "vlans"
 
-    id = Column(UUID(True), primary_key=True, default=uuid.uuid4, server_default=text('uuid_generate_v4()'))
+    id = Column(UUID(True), primary_key=True, server_default=text('uuid_generate_v4()'))
     name = Column(String(48))
     vlanNumber = Column(SmallInteger)
     description = Column(String(250))
     subnets = relationship('subnetModel', backref='subnets', lazy=True)
     dateLastEdited = Column(DateTime)
-    dateCreated = Column(DateTime(timezone=True), default=datetime.utcnow, server_default=func.now(), nullable=False)
+    dateCreated = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
 
     def __repr__(self):
         return f"<vLAN: {self.vlanNumber} - {self.name}>"

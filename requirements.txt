@@ -4,3 +4,4 @@ SQLAlchemy>=1.4.23
 alembic>=1.6.5
 ConfigParser>=5.2.0
 click >= 8.0.4
+sqlalchemy-filters>=0.12.0

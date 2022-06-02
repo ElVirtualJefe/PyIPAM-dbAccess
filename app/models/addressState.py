@@ -11,7 +11,7 @@ class addressStateModel(Base):
 
     __tablename__ = "addressStates"
 
-    id = Column(UUID(True), primary_key=True, default=uuid.uuid4, server_default=text('uuid_generate_v4()'))
+    id = Column(UUID(True), primary_key=True, server_default=text('uuid_generate_v4()'))
     state = Column(String(48))
 
     def __repr__(self):

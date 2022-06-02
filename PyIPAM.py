@@ -19,6 +19,8 @@ if len(sys.argv) > 1:
         match arg:
             case "dbAccess":
                 app.serve('dbAccess')
+            case "ipAddress":
+                app.serve(arg)
             case _:
                 print(f"No such option found: {arg}")
 

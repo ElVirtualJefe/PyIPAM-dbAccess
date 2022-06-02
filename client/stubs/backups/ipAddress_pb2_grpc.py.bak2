@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from app.stubs import ipAddress_pb2 as ipAddress__pb2
+from stubs import ipAddress_pb2 as ipAddress__pb2
 
 
 class IpAddressServiceStub(object):
@@ -37,16 +37,6 @@ class IpAddressServiceStub(object):
         self.UpdateIpAddress = channel.unary_unary(
                 '/dbAccess.IpAddressService/UpdateIpAddress',
                 request_serializer=ipAddress__pb2.ipAddress.SerializeToString,
-                response_deserializer=ipAddress__pb2.IpAddressResponse.FromString,
-                )
-        self.DeleteIpAddressById = channel.unary_unary(
-                '/dbAccess.IpAddressService/DeleteIpAddressById',
-                request_serializer=ipAddress__pb2.IpAddressIdRequest.SerializeToString,
-                response_deserializer=ipAddress__pb2.IpAddressResponse.FromString,
-                )
-        self.DeleteIpAddressByName = channel.unary_unary(
-                '/dbAccess.IpAddressService/DeleteIpAddressByName',
-                request_serializer=ipAddress__pb2.IpAddressNameRequest.SerializeToString,
                 response_deserializer=ipAddress__pb2.IpAddressResponse.FromString,
                 )
 
@@ -84,18 +74,6 @@ class IpAddressServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteIpAddressById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteIpAddressByName(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_IpAddressServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -122,16 +100,6 @@ def add_IpAddressServiceServicer_to_server(servicer, server):
             'UpdateIpAddress': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateIpAddress,
                     request_deserializer=ipAddress__pb2.ipAddress.FromString,
-                    response_serializer=ipAddress__pb2.IpAddressResponse.SerializeToString,
-            ),
-            'DeleteIpAddressById': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteIpAddressById,
-                    request_deserializer=ipAddress__pb2.IpAddressIdRequest.FromString,
-                    response_serializer=ipAddress__pb2.IpAddressResponse.SerializeToString,
-            ),
-            'DeleteIpAddressByName': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteIpAddressByName,
-                    request_deserializer=ipAddress__pb2.IpAddressNameRequest.FromString,
                     response_serializer=ipAddress__pb2.IpAddressResponse.SerializeToString,
             ),
     }
@@ -225,40 +193,6 @@ class IpAddressService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/dbAccess.IpAddressService/UpdateIpAddress',
             ipAddress__pb2.ipAddress.SerializeToString,
-            ipAddress__pb2.IpAddressResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteIpAddressById(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dbAccess.IpAddressService/DeleteIpAddressById',
-            ipAddress__pb2.IpAddressIdRequest.SerializeToString,
-            ipAddress__pb2.IpAddressResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteIpAddressByName(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dbAccess.IpAddressService/DeleteIpAddressByName',
-            ipAddress__pb2.IpAddressNameRequest.SerializeToString,
             ipAddress__pb2.IpAddressResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

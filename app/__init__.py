@@ -11,6 +11,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker,scoped_session
 from urllib.parse import quote_plus as urlquote
 from app.models import db
+#from psycopg2.extras import register_uuid
 
 import os;
 env = os.getenv('FLASK_ENV')
@@ -32,13 +33,14 @@ dbname = config.get("postgres","DB_NAME")
 dbserver = config.get("postgres","DB_SERVER")
 dbport = config.getint("postgres","DB_PORT")
 
-SQLALCHEMY_DATABASE_URI = f"postgresql://{username}:{password}@{dbserver}:{dbport}/{dbname}"
+SQLALCHEMY_DATABASE_URI = f"postgresql+psycopg2://{username}:{password}@{dbserver}:{dbport}/{dbname}"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 #import app.models
 
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 #Base.metadata.create_all(engine)
+#register_uuid()
 db.create_all(engine)
 
 Session = scoped_session(sessionmaker(bind=engine))

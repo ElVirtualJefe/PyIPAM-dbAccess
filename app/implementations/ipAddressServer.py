@@ -2,6 +2,7 @@ from uuid import UUID
 
 import psycopg2.errors as err
 from sqlalchemy import exc as sa_exc
+from app.models import ipAddress
 #import sqlalchemy
 
 import app.stubs.ipAddress_pb2_grpc
@@ -21,7 +22,7 @@ class IpAddressServiceServicer(app.stubs.ipAddress_pb2_grpc.IpAddressServiceServ
 
     def _getIpAddress(self,request,context,search_type):
         resIpAddress = ipAddress_pb2.ipAddress()
-        ip = ipAddressModel()
+        #ip = ipAddressModel()
 
         try:
             match search_type:
@@ -59,6 +60,7 @@ class IpAddressServiceServicer(app.stubs.ipAddress_pb2_grpc.IpAddressServiceServ
             session.rollback()
             #return ipAddress_pb2.IpAddressResponse(ipAddress=resIpAddress)
         else:
+            #print(type(ip.id))
             resIpAddress.id = ip.id.__str__()
             resIpAddress.ipAddress = ip.ipAddress
             resIpAddress.is_gateway = ip.is_gateway
