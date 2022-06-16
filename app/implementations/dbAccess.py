@@ -153,18 +153,21 @@ class DBAccessServicer(db_grpc.DBAccessServicer):
         for i in readFilters:
             key = getattr(i,'columnName')
             value = getattr(i,'filterValue')
+            print(db_pb.filterOps.LIKE)
 
-            match getattr(i,'filterOperation',None):
-                case 0 | None:
+            match getattr(i,'filterOperation',db_pb.filterOps.EQUALS):
+                case db_pb.filterOps.EQUALS:
                     op = '='
+                case db_pb.filterOps.LIKE:
+                    op = 'LIKE'
 
-        #query = apply_filters(query,filters,do_auto_join=False)
-        query_text = f'"{key}" {op} \'{value}\''
-        print(query_text)
-        query = query.filter(text(query_text))
-        print(query)
+            #query = apply_filters(query,filters,do_auto_join=False)
+            query_text = f'"{key}" {op} \'{value}\''
+            print(query_text)
+            query = query.filter(text(query_text))
+            print(query)
 
-        result = query.first()
+        result = query.all()
         print('result:')
         print(result)
 
@@ -178,3 +181,4 @@ class DBAccessServicer(db_grpc.DBAccessServicer):
 
 
         return returnMessage
+

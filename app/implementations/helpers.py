@@ -21,33 +21,38 @@ def getDataTypeFromTable(tableName):
 
     return dataType
 
-def convertDbRowToProtobufMessage(tableName,row,msgType):
+def convertDbRowToProtobufMessage(tableName,data,msgType):
     from sqlalchemy import DateTime
     from sqlalchemy.dialects.postgresql import UUID
 
     print(tableName)
 
     table = Base.metadata.tables[tableName]
-    resMessage = msgType()
+    mes = msgType()
+    resMessage = []
 
-    print(row)
+    print(data)
 
-    for c in table.columns:
-        print(c.name)
-        attr = getattr(row,c.name,None)
-        
-        if attr == None:
-            continue
-        #print(type(c.type))
-        if type(c.type) is UUID:
-            attr = attr.__str__()
-        elif type(c.type) is DateTime:
-            attr = attr.__str__()
-        
-        print('attr:')
-        print(attr)
-        #print(type(attr))
-        setattr(resMessage,c.name,attr)
+    for row in data:
+
+        for c in table.columns:
+            print(c.name)
+            attr = getattr(row,c.name,None)
+            
+            if attr == None:
+                continue
+            #print(type(c.type))
+            if type(c.type) is UUID:
+                attr = attr.__str__()
+            elif type(c.type) is DateTime:
+                attr = attr.__str__()
+            
+            print('attr:')
+            print(attr)
+            #print(type(attr))
+            setattr(mes,c.name,attr)
+
+        resMessage.append(mes)
 
     return resMessage
 
